@@ -26,12 +26,32 @@ layers:
     roads:
         data: { source: osm }
         filter:
-            not: { kind: [rail, ferry] }
+            not: { kind: ["path", "rail"] }
         draw:
             lines:
                 order: function() { return feature.sort_key; }
-                color: [[15, '#777'], [18, '#aaa']]
-                width: [[16, .5px], [18, 10]]
+                color: gray
+                width: 8
+                cap: round
+        highway:
+            filter:
+                kind: highway
+            draw:
+                lines:
+                    order: function() { return feature.sort_key; }
+                    color: '#cc6666'
+                    width: 12
+                    outline:
+                        color: grey
+                        width: 1.5
+        minor_road:
+            filter:
+                kind: minor_road
+            draw:
+                lines:
+                    order: function() { return feature.sort_key; }
+                    color: lightgrey
+                    width: 5
 
     buildings:
         data: { source: osm }
