@@ -33,13 +33,13 @@ map = (function () {
     
     var currentSlr = 4;
     var slrLayers = { 
-                        slr_0ft: L.tileLayer('https://www.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_0ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7}),
-                        slr_1ft: L.tileLayer('https://www.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_1ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7}),
-                        slr_2ft: L.tileLayer('https://www.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_2ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7}),
-                        slr_3ft: L.tileLayer('https://www.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_3ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7}),
-                        slr_4ft: L.tileLayer('https://www.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_4ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7}),
-                        slr_5ft: L.tileLayer('https://www.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_5ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7}),
-                        slr_6ft: L.tileLayer('https://www.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_6ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7})
+                        slr_0ft: L.tileLayer('https://{s}.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_0ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7,subdomains: ['maps', 'maps1', 'maps2','www']}),
+                        slr_1ft: L.tileLayer('https://{s}.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_1ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7,subdomains: ['maps', 'maps1', 'maps2','www']}),
+                        slr_2ft: L.tileLayer('https://{s}.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_2ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7,subdomains: ['maps', 'maps1', 'maps2','www']}),
+                        slr_3ft: L.tileLayer('https://{s}.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_3ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7,subdomains: ['maps', 'maps1', 'maps2','www']}),
+                        slr_4ft: L.tileLayer('https://{s}.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_4ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7,subdomains: ['maps', 'maps1', 'maps2','www']}),
+                        slr_5ft: L.tileLayer('https://{s}.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_5ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7,subdomains: ['maps', 'maps1', 'maps2','www']}),
+                        slr_6ft: L.tileLayer('https://{s}.coast.noaa.gov/arcgis/rest/services/dc_slr/slr_6ft/MapServer/tile/{z}/{y}/{x}',{opacity:0.7,subdomains: ['maps', 'maps1', 'maps2','www']})
                      };
 
     window.layer = layer;
