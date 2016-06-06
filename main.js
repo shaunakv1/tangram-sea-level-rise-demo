@@ -67,6 +67,7 @@ map = (function () {
             map.removeLayer(slrLayers["slr_"+currentSlr+"ft"]);
             currentSlr += 1;
             slrLayers["slr_"+currentSlr+"ft"].addTo(map);
+            $('#slr_level_indicator').html("Sea Level Rise "+currentSlr+"Ft");
         }
     }
 
@@ -75,6 +76,7 @@ map = (function () {
             map.removeLayer(slrLayers["slr_"+currentSlr+"ft"]);
             currentSlr -= 1;
             slrLayers["slr_"+currentSlr+"ft"].addTo(map);
+            $('#slr_level_indicator').html("Sea Level Rise "+currentSlr+"Ft");
         }
         
     }
@@ -84,7 +86,7 @@ map = (function () {
      */
     var seaLevelRiseControlUp = L.Control.extend({
       options: {
-        position: 'topleft' 
+        position: 'bottomleft' 
         //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
       },
       onAdd: function (map) {
@@ -103,11 +105,9 @@ map = (function () {
       },
 
     });
-    map.addControl(new seaLevelRiseControlUp());
-
     var seaLevelRiseControlDown = L.Control.extend({
       options: {
-        position: 'topleft' 
+        position: 'bottomleft' 
         //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
       },
       onAdd: function (map) {
@@ -126,7 +126,9 @@ map = (function () {
       },
 
     });
+
     map.addControl(new seaLevelRiseControlDown());
+    map.addControl(new seaLevelRiseControlUp());
 
     //finally return map object
     return map;

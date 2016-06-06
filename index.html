@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-beta.2/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
-    
+
     <style>
         body {
             margin: 0px;
@@ -32,13 +32,30 @@
         #mz-bug{
             display: none;
         }
+
+        #slr_level_indicator{
+            z-index: 999;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            background: #333;
+            color: white;
+            opacity: 0.9;
+            font-size: 40px;
+            padding: 20px;
+        }
     </style>
   </head>
 
   <body>
+    <div id="slr_level_indicator">Sea Level Rise 4Ft</div>
     <div id="map"></div>
 
     <!-- 3rd party libraries -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-beta.2/leaflet.js"></script>
     <!-- bog-standard leaflet URL hash -->
     <script src="lib/leaflet-hash.js"></script>
