@@ -1,0 +1,72 @@
+cameras:
+    perspective:
+        type: perspective
+        vanishing_point: [0, -500]
+lights:
+    directional1:
+        type: directional
+        direction: [.1, .5, -1]
+        diffuse: .7
+        ambient: .5
+styles:
+    buildings:
+        base: polygons
+        shaders:
+            blocks:
+                color: |
+                    color.rgb *= vec3(min((v_world_position.z*.001 + .6),1.));
+
+sources:
+    osm:
+        type: TopoJSON
+        url:  https://vector.mapzen.com/osm/all/{z}/{x}/{y}.topojson
+        max_zoom: 16
+
+layers:
+    roads:
+        data: { source: osm }
+        filter:
+            not: { kind: [rail, ferry] }
+        draw:
+            lines:
+                order: function() { return feature.sort_key; }
+                color: [[15, '#777'], [18, '#aaa']]
+                width: [[16, .5px], [18, 10]]
+
+    buildings:
+        data: { source: osm }
+        draw:
+            polygons:
+                order: function() { return feature.sort_key; }
+                color: '#fff'
+
+        extruded:
+            draw:
+                polygons:
+                    style: buildings
+                    extrude: function () { return feature.height > 0 || $zoom >= 16; }
+
+    road_labels:
+        data: { source: osm, layer: roads }
+        filter: { name: true, aeroway: false, tunnel: false, railway: false, not: { kind: [rail, ferry] } }
+
+        highway:
+            filter: { kind: highway, $zoom: { min: 7 } }
+            draw:
+                text:
+                    order: function() { return feature.sort_key; }
+                    font:
+                        fill: black
+                        weight: 500
+                        size: 12px
+                        family: Helvetica
+        not_highway:
+            filter: { not: { kind: highway }, $zoom: { min: 15 } }
+            draw:
+                text:
+                    order: function() { return feature.sort_key; }
+                    font:
+                        fill: black
+                        weight: 100
+                        size: 11px
+                        family: Helvetica
