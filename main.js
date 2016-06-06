@@ -57,8 +57,8 @@ map = (function () {
         // Scene initialized
         layer.on('init', function() {
         });
-        slrLayers["slr_"+currentSlr+"ft"].addTo(map);
         layer.addTo(map);
+        slrLayers["slr_"+currentSlr+"ft"].addTo(map);
 
     });
 
